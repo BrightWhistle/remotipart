@@ -13,7 +13,7 @@ module Remotipart
     def render_with_remotipart *args
       render_without_remotipart *args
       if remotipart_submitted?
-        response.body = %{<script type=\"text/javascript\">try{}catch(err){}</script>#{response.body}}
+        response_body = response.body
         response.content_type = Mime::HTML
       end
       response_body
